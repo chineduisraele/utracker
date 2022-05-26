@@ -1,9 +1,21 @@
 @import "../../_globals";
+@mixin hide {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+@mixin show {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
 
 nav {
   background-color: $navGray;
   padding: 0 1rem;
   position: relative;
+  position: sticky;
+  top: 0;
 
   .inner {
     color: white;
@@ -17,6 +29,7 @@ nav {
     }
 
     .lang {
+      cursor: pointer;
       column-gap: 0.2rem;
       svg {
         margin-bottom: 2px;
@@ -97,6 +110,9 @@ nav {
           &:focus {
             outline: none;
           }
+          &::placeholder {
+            color: #808080a6;
+          }
         }
         button {
           border-radius: 0 0.5rem 0.5rem 0;
@@ -112,17 +128,41 @@ nav {
 // mobile
 @media screen and (max-width: 756px) {
   nav {
-    padding: 0.75rem 1rem;
-    height: 100vh;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    &.fixed {
+      height: 100vh;
+      position: fixed;
+    }
     .inner {
       flex-wrap: wrap;
+
+      .toggle {
+        svg {
+          transition: all 0.35s;
+        }
+        .svgclose {
+          @include hide();
+        }
+        &.open {
+          .svgbars {
+            @include hide();
+          }
+          .svgclose {
+            @include show();
+          }
+          + .dropdown {
+            display: grid !important;
+          }
+        }
+      }
+
       .dropdown {
-        // position: absolute;
         top: 100%;
         left: 0;
         width: 100vw;
         max-width: 100%;
-        display: grid;
+        display: none;
         row-gap: 1rem;
         padding: 2rem 0rem 0rem;
         border-radius: 0 0 0.5rem 0.5rem;
@@ -132,7 +172,7 @@ nav {
           display: grid;
           > li {
             flex-wrap: wrap;
-            padding-top: 1rem;
+            padding: 1rem 0;
             ul {
               width: 100%;
               margin-top: 1rem;
@@ -140,6 +180,10 @@ nav {
               display: none;
             }
           }
+        }
+
+        .searchicon {
+          display: none;
         }
         form {
           order: 0;
@@ -160,6 +204,8 @@ nav {
     }
 
     .dropdown {
+      position: relative;
+      align-items: center;
       display: flex;
       column-gap: 2rem;
       .mainul {
@@ -188,18 +234,45 @@ nav {
         }
       }
 
+      .searchicon {
+        border-radius: 50%;
+        height: 38px;
+        width: 39px;
+        background-color: transparent;
+        border: 1px solid white;
+        svg {
+          transition: all 0.35s;
+        }
+        .close {
+          @include hide();
+        }
+
+        &.open {
+          .search {
+            @include hide();
+          }
+          .close {
+            @include show();
+          }
+          + form {
+            display: flex;
+          }
+        }
+      }
+
       form {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        padding: 0.5rem;
+        background-color: $navGray;
+        display: none;
         input {
           padding: 0.5rem 1rem;
-          height: auto;
-          display: none;
         }
         button {
-          border-radius: 50%;
-          height: 38px;
-          width: 39px;
-          background-color: transparent;
-          border: 1px solid white;
+          padding: 0.5rem 1rem;
+          height: 45px;
         }
       }
     }

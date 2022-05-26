@@ -1,12 +1,17 @@
 import React from "react";
 import "./sass/index.css";
 import logo from "../../images/logo.png";
-import { FaAngleDown, FaSearch, FaBars, FaGlobe } from "react-icons/fa";
+import {
+  FaAngleDown,
+  FaSearch,
+  FaBars,
+  FaGlobe,
+  FaTimes,
+} from "react-icons/fa";
 
 const navData = [
   {
     Shipping: [
-      "Ship All Features",
       "Ship Quick & Simple",
       "Shipping Tools",
       "Get Transit Times",
@@ -40,15 +45,17 @@ const Nav = () => {
         {/* toggle */}
         <button
           className="d-flex aic toggle"
-          onClick={({ currenttarget: c }) => {
-            c.nextSibling.classList.toggle("open");
+          onClick={({ currentTarget: c }) => {
+            c.parentElement.parentElement.classList.toggle("fixed");
+            c.classList.toggle("open");
           }}
         >
-          <FaBars />
+          <FaBars className="svgbars" />
+          <FaTimes className="svgclose" />
         </button>
 
         {/* dropdown */}
-        <div className="dropdown open">
+        <div className="dropdown">
           <ul className="mainul">
             {navData.map((it, id) => {
               return (
@@ -56,12 +63,17 @@ const Nav = () => {
                   key={id}
                   className="p-rel"
                   onClick={({ currentTarget: c }) => {
-                    c.parentElement.childNodes.forEach((e) => {
-                      if (e !== c) {
-                        e.classList.remove("active");
-                      }
-                    });
+                    // close other active elements
+                    let activeLi = c.parentElement.querySelector("li.active");
+                    // check if active li is current target
+                    activeLi !== c && activeLi?.classList.remove("active");
+
                     c.classList.toggle("active");
+
+                    // close search form
+                    c.parentElement.parentElement
+                      .querySelector(".searchicon")
+                      .classList.remove("open");
                   }}
                 >
                   {Object.keys(it)[0]} <FaAngleDown />
@@ -77,10 +89,25 @@ const Nav = () => {
             })}
           </ul>
 
+          {/* lang */}
           <span className="d-flex aic lang">
             <FaGlobe /> NG
           </span>
 
+          {/* search icon */}
+          <button
+            className="searchicon d-flex aic jcc"
+            onClick={({ currentTarget: c }) => {
+              c.classList.toggle("open");
+              c.parentElement
+                .querySelector("li.active")
+                .classList.remove("active");
+            }}
+          >
+            <FaSearch className="search" /> <FaTimes className="close" />
+          </button>
+
+          {/* search from */}
           <form className="d-flex aic">
             <input
               type="search"

@@ -2,6 +2,9 @@ nav {
   background-color: #38475d;
   padding: 0 1rem;
   position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 nav .inner {
@@ -18,6 +21,7 @@ nav .inner img {
 }
 
 nav .inner .lang {
+  cursor: pointer;
   -webkit-column-gap: 0.2rem;
           column-gap: 0.2rem;
 }
@@ -116,6 +120,22 @@ nav .inner .dropdown form input:focus {
   outline: none;
 }
 
+nav .inner .dropdown form input::-webkit-input-placeholder {
+  color: #808080a6;
+}
+
+nav .inner .dropdown form input:-ms-input-placeholder {
+  color: #808080a6;
+}
+
+nav .inner .dropdown form input::-ms-input-placeholder {
+  color: #808080a6;
+}
+
+nav .inner .dropdown form input::placeholder {
+  color: #808080a6;
+}
+
 nav .inner .dropdown form button {
   border-radius: 0 0.5rem 0.5rem 0;
   height: 100%;
@@ -125,20 +145,46 @@ nav .inner .dropdown form button {
 
 @media screen and (max-width: 756px) {
   nav {
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+  }
+  nav.fixed {
     height: 100vh;
+    position: fixed;
   }
   nav .inner {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  nav .inner .toggle svg {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  nav .inner .toggle .svgclose {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+  nav .inner .toggle.open .svgbars {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+  nav .inner .toggle.open .svgclose {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+  }
+  nav .inner .toggle.open + .dropdown {
+    display: -ms-grid !important;
+    display: grid !important;
   }
   nav .inner .dropdown {
     top: 100%;
     left: 0;
     width: 100vw;
     max-width: 100%;
-    display: -ms-grid;
-    display: grid;
+    display: none;
     row-gap: 1rem;
     padding: 2rem 0rem 0rem;
     border-radius: 0 0 0.5rem 0.5rem;
@@ -154,12 +200,15 @@ nav .inner .dropdown form button {
   nav .inner .dropdown .mainul > li {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    padding-top: 1rem;
+    padding: 1rem 0;
   }
   nav .inner .dropdown .mainul > li ul {
     width: 100%;
     margin-top: 1rem;
     position: relative;
+    display: none;
+  }
+  nav .inner .dropdown .searchicon {
     display: none;
   }
   nav .inner .dropdown form {
@@ -177,6 +226,10 @@ nav .inner .dropdown form button {
     display: none;
   }
   nav .inner .dropdown {
+    position: relative;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -212,17 +265,51 @@ nav .inner .dropdown form button {
   nav .inner .dropdown .lang svg {
     margin-bottom: 3px;
   }
-  nav .inner .dropdown form input {
-    padding: 0.5rem 1rem;
-    height: auto;
-    display: none;
-  }
-  nav .inner .dropdown form button {
+  nav .inner .dropdown .searchicon {
     border-radius: 50%;
     height: 38px;
     width: 39px;
     background-color: transparent;
     border: 1px solid white;
+  }
+  nav .inner .dropdown .searchicon svg {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  nav .inner .dropdown .searchicon .close {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+  nav .inner .dropdown .searchicon.open .search {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+  nav .inner .dropdown .searchicon.open .close {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+  }
+  nav .inner .dropdown .searchicon.open + form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  nav .inner .dropdown form {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #38475d;
+    display: none;
+  }
+  nav .inner .dropdown form input {
+    padding: 0.5rem 1rem;
+  }
+  nav .inner .dropdown form button {
+    padding: 0.5rem 1rem;
+    height: 45px;
   }
 }
 /*# sourceMappingURL=index.css.map */
