@@ -7,6 +7,16 @@ nav {
   top: 0;
 }
 
+nav li,
+nav svg,
+nav img,
+nav span {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 nav .inner {
   color: white;
   max-width: 970px;
@@ -16,6 +26,7 @@ nav .inner {
 }
 
 nav .inner img {
+  cursor: pointer;
   width: 88px;
   margin-right: auto;
 }

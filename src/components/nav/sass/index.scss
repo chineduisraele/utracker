@@ -16,6 +16,12 @@ nav {
   position: relative;
   position: sticky;
   top: 0;
+  li,
+  svg,
+  img,
+  span {
+    user-select: none;
+  }
 
   .inner {
     color: white;
@@ -24,6 +30,7 @@ nav {
     column-gap: 2rem;
 
     img {
+      cursor: pointer;
       width: 88px;
       margin-right: auto;
     }

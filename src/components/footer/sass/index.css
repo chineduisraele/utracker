@@ -12,16 +12,26 @@
   font-size: 14px;
 }
 
-.one .inner .second {
+.one .inner .about p {
+  font-size: 13px;
+  padding-top: 1rem;
+}
+
+.one .inner .follow {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-.one .inner .second div {
+.one .inner .follow > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  row-gap: 0.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
   -webkit-box-align: center;
@@ -29,14 +39,39 @@
           align-items: center;
 }
 
-.one .inner .second div.language svg {
+.one .inner .follow > div.country {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: green;
+}
+
+.one .inner .follow > div.country svg {
   margin-bottom: -2px;
 }
 
-.one .inner .second div.follow span {
+.one .inner .follow > div.followlinks {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.one .inner .follow > div.followlinks div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+}
+
+.one .inner .follow > div.followlinks div a {
   width: 40px;
   height: 41px;
-  border: 1px solid gray;
+  border: 1px solid #38475d;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -49,7 +84,7 @@
   border-radius: 50%;
 }
 
-.one .inner .second div.follow span svg {
+.one .inner .follow > div.followlinks div a svg {
   font-size: 1.2rem;
 }
 
@@ -57,24 +92,37 @@
   background-color: #38475d;
 }
 
-.two .third {
+.two .inner {
   max-width: 970px;
   margin: auto;
   padding: 1rem;
   color: white;
 }
 
-.two .third span {
+.two .inner span {
   font-size: 14px;
 }
 
-.two .third span:first-of-type {
+.two .inner span:first-of-type {
   margin-right: auto;
 }
 
-.two .third span:last-of-type {
+.two .inner span:last-of-type {
   margin-left: 1rem;
   padding-left: 1rem;
   border-left: 1px solid white;
+}
+
+@media screen and (max-width: 565px) {
+  .follow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1rem;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 /*# sourceMappingURL=index.css.map */

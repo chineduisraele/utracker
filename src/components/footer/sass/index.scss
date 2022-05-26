@@ -11,29 +11,44 @@
       color: $navGray;
       font-size: 14px;
     }
+    .about p {
+      font-size: 13px;
+      padding-top: 1rem;
+    }
 
-    .second {
+    .follow {
       justify-content: space-between;
-      div {
+      > div {
         display: flex;
+        row-gap: 0.5rem;
+        flex-direction: column;
         column-gap: 1rem;
         align-items: center;
-        &.language {
+        &.country {
+          display: grid;
+          justify-content: flex-start;
+          color: green;
           svg {
             margin-bottom: -2px;
           }
         }
-        &.follow {
-          span {
-            width: 40px;
-            height: 41px;
-            border: 1px solid gray;
-            align-items: center;
-            justify-content: center;
+        &.followlinks {
+          display: grid;
+          justify-content: flex-start;
+          div {
             display: flex;
-            border-radius: 50%;
-            svg {
-              font-size: 1.2rem;
+            column-gap: 0.5rem;
+            a {
+              width: 40px;
+              height: 41px;
+              border: 1px solid $navGray;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+              border-radius: 50%;
+              svg {
+                font-size: 1.2rem;
+              }
             }
           }
         }
@@ -44,7 +59,7 @@
 
 .two {
   background-color: $navGray;
-  .third {
+  .inner {
     max-width: $defaultWidth;
     margin: auto;
     padding: 1rem;
@@ -60,5 +75,13 @@
         border-left: 1px solid white;
       }
     }
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .follow {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
   }
 }
