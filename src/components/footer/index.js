@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
           {/* follow */}
           <div className="follow d-flex aic">
-            <div className="followlinks d-grid">
+            <div className="followlinks">
               <h3>FOLLOW COMPANY</h3>
               <div>
                 <a href="#">

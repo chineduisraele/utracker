@@ -1,10 +1,17 @@
+.navoverlay {
+  display: none;
+}
+
 nav {
-  background-color: #38475d;
+  background-color: #304a85;
   padding: 0 1rem;
   position: relative;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 50;
+  -webkit-box-shadow: 0 4px 8px -4px rgba(128, 128, 128, 0.795);
+          box-shadow: 0 4px 8px -4px rgba(128, 128, 128, 0.795);
 }
 
 nav li,
@@ -119,39 +126,13 @@ nav .inner .dropdown .lang {
   display: none;
 }
 
-nav .inner .dropdown form input {
-  width: 100%;
-  padding: 0.5rem 1rem;
+nav .inner .dropdown .searchform {
+  -ms-grid-columns: 1fr 60px;
+      grid-template-columns: 1fr 60px;
+}
+
+nav .inner .dropdown .searchform input {
   height: 45px;
-  border-radius: 0.5rem 0 0 0.5rem;
-  border: none;
-}
-
-nav .inner .dropdown form input:focus {
-  outline: none;
-}
-
-nav .inner .dropdown form input::-webkit-input-placeholder {
-  color: #808080a6;
-}
-
-nav .inner .dropdown form input:-ms-input-placeholder {
-  color: #808080a6;
-}
-
-nav .inner .dropdown form input::-ms-input-placeholder {
-  color: #808080a6;
-}
-
-nav .inner .dropdown form input::placeholder {
-  color: #808080a6;
-}
-
-nav .inner .dropdown form button {
-  border-radius: 0 0.5rem 0.5rem 0;
-  height: 100%;
-  width: 60px;
-  background-color: #d15f16;
 }
 
 @media screen and (max-width: 756px) {
@@ -199,7 +180,7 @@ nav .inner .dropdown form button {
     row-gap: 1rem;
     padding: 2rem 0rem 0rem;
     border-radius: 0 0 0.5rem 0.5rem;
-    background-color: #38475d;
+    background-color: #304a85;
   }
   nav .inner .dropdown .mainul {
     -webkit-box-ordinal-group: 2;
@@ -230,6 +211,18 @@ nav .inner .dropdown form button {
 }
 
 @media screen and (min-width: 756px) {
+  .navoverlay {
+    background-color: #00000040;
+    height: 150vh;
+    width: 100vw;
+    z-index: 20;
+    position: fixed;
+    cursor: pointer;
+    left: 0;
+  }
+  .navoverlay.open {
+    display: block;
+  }
   nav .inner .toggle {
     display: none;
   }
@@ -312,7 +305,7 @@ nav .inner .dropdown form button {
     top: 100%;
     width: 100%;
     padding: 0.5rem;
-    background-color: #38475d;
+    background-color: #304a85;
     display: none;
   }
   nav .inner .dropdown form input {

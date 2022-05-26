@@ -13,6 +13,16 @@
   display: flex;
 }
 
+.d-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.acc {
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
 .aic {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -52,5 +62,57 @@ a {
 ul,
 li {
   list-style: none;
+}
+
+.imgcont {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.imgcont img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.searchform {
+  display: -ms-grid;
+  display: grid;
+}
+
+.searchform input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  border: none;
+}
+
+.searchform input:focus {
+  outline: none;
+}
+
+.searchform input::-webkit-input-placeholder {
+  color: #808080a6;
+}
+
+.searchform input:-ms-input-placeholder {
+  color: #808080a6;
+}
+
+.searchform input::-ms-input-placeholder {
+  color: #808080a6;
+}
+
+.searchform input::placeholder {
+  color: #808080a6;
+}
+
+.searchform button {
+  border-radius: 0 0.5rem 0.5rem 0;
+  height: 100%;
+  background-color: #d15f16;
 }
 /*# sourceMappingURL=App.css.map */

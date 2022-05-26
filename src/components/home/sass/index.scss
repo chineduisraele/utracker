@@ -1,1 +1,231 @@
 @import "../../_globals";
+
+main {
+  margin-bottom: 7rem;
+  .track {
+    //   heroimg
+    .imgcont {
+      padding-top: 37%;
+      position: absolute;
+      z-index: -1;
+      img {
+        object-fit: cover;
+        height: 100%;
+        filter: brightness(0.75);
+      }
+    }
+
+    .inner {
+      padding: 0 1rem;
+      max-width: $defaultWidth;
+      margin: auto;
+      h1 {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 300;
+        margin: 6rem 0 4rem;
+        color: #fff;
+      }
+      .btngrp {
+        column-gap: 1px;
+        button {
+          position: relative;
+          width: 25%;
+          height: 0;
+          padding-top: 20%;
+          background-color: #fff;
+
+          &.active {
+            transform: scale(1.15);
+            box-shadow: 0 0 8px -1px gray;
+            color: #fff;
+            z-index: 1;
+            background-color: $navGray;
+            span {
+              svg {
+                .svgs {
+                  stroke: #fff;
+                  stroke-width: 4;
+                }
+                &.lastsvg .svgs {
+                  stroke-width: 2;
+                }
+              }
+            }
+          }
+
+          span {
+            position: absolute;
+            font-weight: 600;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 0.5rem;
+            padding: 0 1rem;
+            svg {
+              height: 45px;
+              width: 45px;
+              .svgs {
+                fill: none;
+                stroke: #333;
+                stroke-width: 2;
+              }
+              &.lastsvg {
+                height: 38px;
+                width: 38px;
+                .svgs {
+                  stroke-width: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      form {
+        margin: 3rem 0 1rem;
+        display: grid;
+        grid-template-columns: 77% 23%;
+        input {
+          border-radius: 0;
+          height: 55px;
+          &::placeholder {
+            color: grey;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 500;
+          }
+        }
+        button {
+          border-radius: 0;
+          color: #fff;
+          font-weight: 600;
+          width: 100%;
+          height: 100%;
+          font-size: 14px;
+        }
+      }
+      > span {
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 2rem;
+        i {
+          border-left: 2px solid #fff;
+          margin: 0 1rem;
+        }
+      }
+    }
+  }
+
+  section {
+    display: grid;
+    row-gap: 3rem;
+    padding: 0 1rem;
+
+    > article {
+      font-weight: 300;
+      max-width: $defaultWidth;
+      margin: auto;
+
+      h3 {
+        font-weight: inherit;
+      }
+    }
+
+    // safety
+    .safety {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 5rem;
+      background-color: #fafafa;
+      padding: 2rem 3rem;
+      .text {
+        row-gap: 1rem;
+        grid-template-rows: max-content;
+        h3 {
+          font-weight: normal;
+        }
+        button {
+          border: 2px solid $orange;
+          border-radius: 5rem;
+          padding: 12px 30px;
+          width: max-content;
+          align-self: flex-end;
+          font-weight: bold;
+          color: $orange;
+          font-size: 14px;
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+      .imgcont {
+        padding-top: 63.5%;
+      }
+    }
+
+    // updates
+    .updates {
+      row-gap: 1rem;
+      background-color: $backgroundGray;
+      padding: 3rem 5rem;
+      h3 {
+        font-weight: normal;
+      }
+      h3,
+      p,
+      a {
+        text-align: center;
+      }
+      a {
+        text-decoration: underline;
+        color: blue;
+      }
+    }
+
+    // customers
+    .customers {
+      row-gap: 2rem;
+      h3 {
+        color: $navGray;
+        font-size: 35px;
+        font-weight: inherit;
+      }
+      > h3,
+      > p {
+        text-align: center;
+      }
+      > .cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        div {
+          display: grid;
+          row-gap: 1rem;
+          grid-template-rows: max-content;
+          .imgcont {
+            padding-top: 66.66%;
+          }
+
+          h3 {
+            font-size: 20px;
+            font-weight: 400;
+          }
+
+          a {
+            font-weight: 600;
+            color: $orange;
+            align-self: flex-end;
+            svg {
+              margin-left: 0.5rem;
+              margin-bottom: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
