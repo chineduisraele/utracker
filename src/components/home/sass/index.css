@@ -3,7 +3,7 @@ main {
 }
 
 main .track .imgcont {
-  padding-top: 37%;
+  padding-top: 40%;
   position: absolute;
   z-index: -1;
 }
@@ -12,6 +12,8 @@ main .track .imgcont img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
+  -o-object-position: 34% 0;
+     object-position: 34% 0;
   -webkit-filter: brightness(0.75);
           filter: brightness(0.75);
 }
@@ -119,34 +121,6 @@ main .track .inner form input {
   height: 55px;
 }
 
-main .track .inner form input::-webkit-input-placeholder {
-  color: grey;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-main .track .inner form input:-ms-input-placeholder {
-  color: grey;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-main .track .inner form input::-ms-input-placeholder {
-  color: grey;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-main .track .inner form input::placeholder {
-  color: grey;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
 main .track .inner form button {
   border-radius: 0;
   color: #fff;
@@ -162,6 +136,10 @@ main .track .inner > span {
   margin-bottom: 2rem;
 }
 
+main .track .inner > span a {
+  color: #fff;
+}
+
 main .track .inner > span i {
   border-left: 2px solid #fff;
   margin: 0 1rem;
@@ -170,7 +148,7 @@ main .track .inner > span i {
 main section {
   display: -ms-grid;
   display: grid;
-  row-gap: 3rem;
+  row-gap: 4rem;
   padding: 0 1rem;
 }
 
@@ -190,7 +168,7 @@ main section .safety {
   -webkit-column-gap: 5rem;
           column-gap: 5rem;
   background-color: #fafafa;
-  padding: 2rem 3rem;
+  padding: 2.2rem 3rem;
 }
 
 main section .safety .text {
@@ -205,7 +183,7 @@ main section .safety .text h3 {
 }
 
 main section .safety .text button {
-  border: 2px solid #ff6200;
+  border: 2px solid #304a85;
   border-radius: 5rem;
   padding: 12px 30px;
   width: -webkit-max-content;
@@ -214,7 +192,7 @@ main section .safety .text button {
   -ms-flex-item-align: end;
       align-self: flex-end;
   font-weight: bold;
-  color: #ff6200;
+  color: #304a85;
   font-size: 14px;
 }
 
@@ -297,5 +275,129 @@ main section .customers > .cards div a {
 main section .customers > .cards div a svg {
   margin-left: 0.5rem;
   margin-bottom: 2px;
+}
+
+@media screen and (max-width: 425px) {
+  main .track div.inner h1 {
+    font-size: 32px !important;
+  }
+  main .track div.imgcont img {
+    -o-object-position: 20% 0;
+       object-position: 20% 0;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  main .track .imgcont {
+    padding-top: 250px !important;
+  }
+  main .track .imgcont img {
+    -o-object-position: 20% 0;
+       object-position: 20% 0;
+  }
+  main .track .inner {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin: 0;
+  }
+  main .track .inner h1 {
+    font-size: 38px !important;
+    margin: 6rem 0 4rem;
+  }
+  main .track .inner .btngrp {
+    -webkit-column-gap: 0 !important;
+            column-gap: 0 !important;
+  }
+  main .track .inner .btngrp button {
+    width: 38% !important;
+    padding-top: 24% !important;
+    background-color: #f1f1f1;
+  }
+  main .track .inner form input {
+    background-color: #f1f1f1;
+  }
+  main .track .inner > span {
+    cursor: pointer;
+    color: #333;
+    font-size: 13px;
+  }
+  main .track .inner > span a {
+    color: #ff6200;
+  }
+  main .track .inner > span i {
+    border-color: #333;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  main .track .imgcont {
+    padding-top: 460px;
+  }
+  main .track .inner h1 {
+    font-size: 45px;
+    margin: 6rem 0 4rem;
+  }
+  main .track .inner .btngrp button {
+    width: 26%;
+    padding-top: 22%;
+  }
+  main .track .inner .btngrp button.active span svg .svgs {
+    stroke: #fff;
+    stroke-width: 3;
+  }
+  main .track .inner .btngrp button.active span svg.lastsvg .svgs {
+    stroke-width: 1.7;
+  }
+  main .track .inner .btngrp button span {
+    font-weight: 500;
+    row-gap: 0.1rem;
+    font-size: 11.5px;
+  }
+  main .track .inner .btngrp button span svg {
+    height: 32px;
+    width: 32px;
+  }
+  main .track .inner .btngrp button span svg .svgs {
+    stroke-width: 1.8;
+  }
+  main .track .inner .btngrp button span svg.lastsvg {
+    height: 25px;
+    width: 25px;
+  }
+  main .track .inner .btngrp button span svg.lastsvg .svgs {
+    stroke-width: 1.2;
+  }
+  main section article {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+    row-gap: 2rem 0;
+  }
+  main section .safety {
+    margin-top: 2.2rem;
+    padding: 0 0 2.2rem;
+  }
+  main section .safety .text {
+    padding: 1rem;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  main section .updates {
+    padding: 2rem;
+  }
+  main section .customers .cards {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 757px) {
+  main .track .imgcont {
+    padding-top: 540px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

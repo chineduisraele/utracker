@@ -13,6 +13,7 @@ const Footer = () => {
   return (
     <>
       <footer className="one">
+        <Footer2 />
         <div className="inner">
           {/* About */}
           <div className="about">
@@ -65,6 +66,35 @@ const Footer = () => {
         </div>
       </footer>
     </>
+  );
+};
+
+const Footer2 = () => {
+  return (
+    <div className=" footerTwo text-c">
+      <div className="inner d-grid rg-1 m-auto">
+        <p>
+          Created by Chinedu Isreale.
+          <span>
+            <FaLinkedin />
+            <a
+              href="http://linkedin.com/in/chineduisraele"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Profile
+            </a>
+          </span>
+        </p>
+        <p>
+          This site was inspired by fedEx.com and cointains images obtained from
+          the aforementioned site. The images have been left unmodified,
+          digitally or otherwise, inorder to give due credit to the authors and
+          source. This site is merely a personal project and every image
+          contained herein will be taken down in the event of commercialization.
+        </p>
+      </div>
+    </div>
   );
 };
 

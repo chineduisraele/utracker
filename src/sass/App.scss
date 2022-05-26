@@ -50,6 +50,13 @@ li {
   list-style: none;
 }
 
+h1 {
+  line-height: 2.5rem;
+}
+h3 {
+  line-height: 2.2rem;
+}
+
 // classes
 .imgcont {
   width: 100%;
@@ -69,17 +76,18 @@ li {
   input {
     width: 100%;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem 0 0 0.5rem;
     border: none;
     &:focus {
       outline: none;
     }
     &::placeholder {
-      color: #808080a6;
+      color: grey;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
     }
   }
   button {
-    border-radius: 0 0.5rem 0.5rem 0;
     height: 100%;
     background-color: #d15f16;
   }

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
-import uthero from "../../images/uthero.jpg";
-import ut0 from "../../images/ut0.jpg";
-import ut1 from "../../images/ut1.jpg";
-import ut2 from "../../images/ut2.jpeg";
-import ut3 from "../../images/ut3.png";
+import uthero from "../../images/uthero.webp";
+import ut0 from "../../images/ut0.webp";
+import ut1 from "../../images/ut1.webp";
+import ut2 from "../../images/ut2.webp";
+import ut3 from "../../images/ut3.webp";
 
 import "./sass/index.css";
 
@@ -76,7 +76,7 @@ const Home = () => {
             <button type="submit">TRACK</button>
           </form>
           <span>
-            NEED HELP? <i></i> CONTACT SUPPORT NOW
+            <a href="#">NEED HELP?</a> <i></i> CONTACT SUPPORT NOW
           </span>
         </div>
       </article>
@@ -95,7 +95,7 @@ const Home = () => {
             <button>LEARN MORE</button>
           </div>
           <div className="imgcont">
-            <img src={ut0} alt="safety" />
+            <img src={ut0} alt="safety" loading="lazy" />
           </div>
         </article>
 

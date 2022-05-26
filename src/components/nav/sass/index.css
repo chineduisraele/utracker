@@ -91,10 +91,6 @@ nav .inner .dropdown .mainul > li.active ul {
   display: grid;
 }
 
-nav .inner .dropdown .mainul > li:hover {
-  color: #ff6200;
-}
-
 nav .inner .dropdown .mainul > li svg {
   margin-left: auto;
   font-size: 0.9rem;
@@ -149,6 +145,7 @@ nav .inner .dropdown .searchform input {
         flex-wrap: wrap;
   }
   nav .inner .toggle svg {
+    font-size: 1.8rem !important;
     -webkit-transition: all 0.35s;
     transition: all 0.35s;
   }
@@ -178,7 +175,7 @@ nav .inner .dropdown .searchform input {
     max-width: 100%;
     display: none;
     row-gap: 1rem;
-    padding: 2rem 0rem 0rem;
+    padding: 1.5rem 0rem 0rem;
     border-radius: 0 0 0.5rem 0.5rem;
     background-color: #304a85;
   }
@@ -210,7 +207,7 @@ nav .inner .dropdown .searchform input {
   }
 }
 
-@media screen and (min-width: 756px) {
+@media screen and (min-width: 757px) {
   .navoverlay {
     background-color: #00000040;
     height: 150vh;
@@ -247,10 +244,13 @@ nav .inner .dropdown .searchform input {
     margin-left: auto;
   }
   nav .inner .dropdown .mainul > li {
-    padding: 0.9rem;
+    padding: 1.2rem;
   }
   nav .inner .dropdown .mainul > li.active {
     background-color: #fff;
+  }
+  nav .inner .dropdown .mainul > li:hover {
+    color: #ff6200;
   }
   nav .inner .dropdown .mainul > li ul {
     position: absolute;
@@ -271,8 +271,8 @@ nav .inner .dropdown .searchform input {
   }
   nav .inner .dropdown .searchicon {
     border-radius: 50%;
-    height: 38px;
-    width: 39px;
+    height: 42px;
+    width: 43px;
     background-color: transparent;
     border: 1px solid white;
   }
