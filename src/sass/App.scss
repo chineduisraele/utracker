@@ -8,6 +8,7 @@
     sans-serif;
   line-height: 1.4rem;
   -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .d-flex {
@@ -47,6 +48,7 @@ a {
   color: #333;
   text-decoration: none;
 }
+
 ul,
 li {
   list-style: none;
@@ -61,6 +63,7 @@ h3 {
 input,
 select {
   border: none;
+  user-select: auto;
   &:focus {
     outline: none;
   }
@@ -97,3 +100,4 @@ select {
     background-color: $orange;
   }
 }
+

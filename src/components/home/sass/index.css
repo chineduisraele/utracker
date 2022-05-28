@@ -6,16 +6,11 @@ main .track .imgcont {
   padding-top: 40%;
   position: absolute;
   z-index: -1;
-}
-
-main .track .imgcont img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  -o-object-position: 34% 0;
-     object-position: 34% 0;
-  -webkit-filter: brightness(0.75);
-          filter: brightness(0.75);
+  background-image: url("../../../images/uthero.webp");
+  background-size: cover;
+  background-position: 34% 0;
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 main .track .inner {
@@ -154,13 +149,15 @@ main .track .inner form > div {
   position: relative;
 }
 
-main .track .inner form > div svg {
+main .track .inner form > div label {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   right: 0.5rem;
   color: #333;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 main .track .inner form > div select {
@@ -476,6 +473,7 @@ main section .customers > .cards div a svg {
 
 @media screen and (min-width: 769px) {
   main .track .imgcont {
+    background-image: url("../../../images/uthero.jpg");
     padding-top: 540px;
   }
 }

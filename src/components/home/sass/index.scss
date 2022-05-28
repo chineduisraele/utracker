@@ -8,12 +8,10 @@ main {
       padding-top: 40%;
       position: absolute;
       z-index: -1;
-      img {
-        object-fit: cover;
-        height: 100%;
-        object-position: 34% 0;
-        filter: brightness(0.75);
-      }
+      background-image: url("../../../images/uthero.webp");
+      background-size: cover;
+      background-position: 34% 0;
+      filter: brightness(0.8);
     }
 
     .inner {
@@ -125,12 +123,14 @@ main {
         > div {
           display: none;
           position: relative;
-          svg {
+          label {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             right: 0.5rem;
             color: #333;
+            cursor: pointer;
+            pointer-events: none;
             // path {
             //   stroke-width: 25;
             //   fill: none;
@@ -449,17 +449,9 @@ main {
     .track {
       //   heroimg
       .imgcont {
+        background-image: url("../../../images/uthero.jpg");
         padding-top: 540px;
       }
     }
   }
 }
-
-// @media screen and (min-width: 971px) {
-//   main {
-//     .track {
-//       .imgcont {
-//       }
-//     }
-//   }
-// }

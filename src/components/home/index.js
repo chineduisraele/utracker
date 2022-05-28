@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { countriesData } from "./country";
 import { FaAngleRight, FaCaretDown } from "react-icons/fa";
-import uthero from "../../images/uthero.webp";
-import uthero1 from "../../images/uthero1.webp";
 import ut0 from "../../images/ut0.webp";
 import ut1 from "../../images/ut1.webp";
 import ut2 from "../../images/ut2.webp";
@@ -50,11 +48,11 @@ const Home = () => {
       {/* tracker */}
       <article className="track">
         <div className="imgcont">
-          <picture>
+          {/* <picture>
             <source media="(min-width:769px )" srcSet={uthero} />
             <source media="(min-width:0px )" srcSet={uthero1} />
             <img src={uthero} alt="heroimg" />
-          </picture>
+          </picture> */}
           {/* <img src={uthero} alt="heroimg" /> */}
         </div>
         {/* inner */}
@@ -93,7 +91,9 @@ const Home = () => {
             <input type="text" placeholder="Enter your tracking number" />
             {/* transit time */}
             <div>
-              <FaCaretDown />
+              <label htmlFor="fromcountries">
+                <FaCaretDown />
+              </label>
               <select
                 name="fromcountries"
                 id="fromcountries"
@@ -117,7 +117,9 @@ const Home = () => {
               </select>
             </div>
             <div>
-              <FaCaretDown />
+              <label htmlFor="tocountries">
+                <FaCaretDown />
+              </label>
               <select
                 name="tocountries"
                 id="tocountries"
