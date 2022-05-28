@@ -77,7 +77,7 @@ const Nav = () => {
       {/* navbar */}
       <nav>
         <div className="inner d-flex aic jcc">
-          <img src={logo} alt={logo} />
+          <img src={logo} alt={"logo"} />
 
           <span className="d-flex aic lang">
             <FaGlobe /> {location || "..."}

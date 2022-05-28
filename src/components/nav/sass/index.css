@@ -43,6 +43,7 @@ nav .inner .lang {
   cursor: pointer;
   -webkit-column-gap: 0.2rem;
           column-gap: 0.2rem;
+  width: 41.6px;
 }
 
 nav .inner .lang svg {

@@ -464,6 +464,9 @@ main section .customers > .cards div a svg {
   main section .updates {
     padding: 2rem;
   }
+  main section .customers > h3 {
+    font-size: 27px !important;
+  }
   main section .customers .cards {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
