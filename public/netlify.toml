@@ -1,7 +1,13 @@
 [[headers]]
-  for = "*.js" # js files should be set this way
+  for = "*" # all files should be set this way
   [headers.values]
     Cache-Control = "public, max-age=60004800"
+
+
+#[[headers]]
+#  for = "*.js" # js files should be set this way
+#  [headers.values]
+#    Cache-Control = "public, max-age=60004800"
 # [[headers]]
 #   for = "*.css" # css files too
 #   [headers.values]
