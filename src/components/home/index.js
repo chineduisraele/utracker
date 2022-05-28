@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { FaAngleRight } from "react-icons/fa";
+import { countriesData } from "./country";
+import { FaAngleRight, FaCaretDown } from "react-icons/fa";
 import uthero from "../../images/uthero.webp";
+import uthero1 from "../../images/uthero1.webp";
 import ut0 from "../../images/ut0.webp";
 import ut1 from "../../images/ut1.webp";
 import ut2 from "../../images/ut2.webp";
@@ -12,16 +14,16 @@ const customerData = [
     [
       ut1,
       "Customs Made Easier",
-      "Learn about all the tools uTracker has to offer for shipping across borders. Prepare and find international documents, estimate duties and taxes, search country profiles, harmonized codes and much more. ",
+      "Learn about all the tools Voom has to offer for shipping across borders. Prepare and find international documents, estimate duties and taxes, search country profiles, harmonized codes and much more. ",
     ],
     [
       ut2,
-      "Open a uTracker account",
-      "Benefit from our services and solutions designed to meet all of your shipping needs. Sign up for a uTracker shipping account below.",
+      "Open a Voom account",
+      "Benefit from our services and solutions designed to meet all of your shipping needs. Sign up for a Voom shipping account below.",
     ],
     [
       ut3,
-      "uTracker International Priority Express®",
+      "Voom International Priority Express®",
       "More delivery time options are available for your international shipments from January 3, 2022",
     ],
   ],
@@ -39,17 +41,25 @@ const Home = () => {
       !c.classList.contains("active") && c.classList.add("active");
     }
   };
-  const [formstate, setFormstate] = useState("track");
+  const [formstate, setFormstate] = useState(1);
+  const [from, setFrom] = useState();
+  const [to, setTo] = useState();
+
   return (
     <main>
       {/* tracker */}
       <article className="track">
         <div className="imgcont">
-          <img src={uthero} alt="heroimg" />
+          <picture>
+            <source media="(min-width:769px )" srcSet={uthero} />
+            <source media="(min-width:0px )" srcSet={uthero1} />
+            <img src={uthero} alt="heroimg" />
+          </picture>
+          {/* <img src={uthero} alt="heroimg" /> */}
         </div>
         {/* inner */}
         <div className="inner d-grid jcc">
-          <h1>Where now meets next.</h1>
+          <h2>Where now meets next.</h2>
           <div className="btngrp d-flex aic jcc">
             {svgBtnsData.map(([svg, text], id) => {
               return (
@@ -57,6 +67,7 @@ const Home = () => {
                   key={id}
                   onClick={({ currentTarget: c }) => {
                     toggleActiveButton(c);
+                    setFormstate(id);
                   }}
                   className={id === 1 ? "active" : ""}
                 >
@@ -71,9 +82,72 @@ const Home = () => {
             })}
           </div>
 
-          <form className="searchform d-flex aic jcc">
+          <form
+            className={`searchform d-flex aic jcc ${
+              formstate === 0 ? "transittimes" : formstate === 2 ? "ship" : ""
+            }`}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <input type="text" placeholder="Enter your tracking number" />
-            <button type="submit">TRACK</button>
+            {/* transit time */}
+            <div>
+              <FaCaretDown />
+              <select
+                name="fromcountries"
+                id="fromcountries"
+                onChange={({ currentTarget: c }) => {
+                  setFrom(c.value);
+                }}
+              >
+                <option>FROM ...</option>
+                {countriesData.map(([value, name], id) => {
+                  return (
+                    <option
+                      key={id}
+                      value={value}
+                      disabled={value === to ? true : false}
+                      style={value === to ? { color: "red" } : {}}
+                    >
+                      {name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <div>
+              <FaCaretDown />
+              <select
+                name="tocountries"
+                id="tocountries"
+                onChange={({ currentTarget: c }) => {
+                  setTo(c.value);
+                }}
+              >
+                <option>TO ...</option>
+                {countriesData.map(([value, name], id) => {
+                  return (
+                    <option
+                      key={id}
+                      value={value}
+                      disabled={value === from ? true : false}
+                      style={value === from ? { color: "red" } : {}}
+                    >
+                      {name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+
+            <button type="submit">
+              {formstate === 0
+                ? "CHECK"
+                : formstate === 2
+                ? "PROCEED TO SHIPPING"
+                : "TRACK"}
+            </button>
           </form>
           <span>
             <a href="#">NEED HELP?</a> <i></i> CONTACT SUPPORT NOW

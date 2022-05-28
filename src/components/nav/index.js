@@ -8,6 +8,8 @@ import {
   FaGlobe,
   FaTimes,
 } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const navData = [
   {
@@ -33,6 +35,29 @@ const navData = [
 ];
 
 const Nav = () => {
+  const [location, setLocation] = useState();
+
+  useEffect(() => {
+    let loc = sessionStorage.getItem("loc");
+    if (loc) {
+      setLocation(loc);
+    } else {
+      var requestOptions = {
+        method: "GET",
+      };
+
+      fetch(
+        "https://api.geoapify.com/v1/ipinfo?&apiKey=4a05d7b0302849b49a8fd2b8ac34bbaa",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          setLocation(result.country.iso_code);
+          sessionStorage.setItem("loc", result.country.iso_code);
+        })
+        .catch((error) => console.error(error.response));
+    }
+  }, []);
   return (
     <>
       {/* overlay for large screen dropdown */}
@@ -40,6 +65,12 @@ const Nav = () => {
         className="navoverlay"
         onClick={({ currentTarget: c }) => {
           c.classList.remove("open");
+          c.nextElementSibling
+            .querySelector("li.active")
+            ?.classList.remove("active");
+          c.nextElementSibling
+            .querySelector(".searchicon")
+            ?.classList.remove("open");
         }}
       ></div>
 
@@ -49,11 +80,12 @@ const Nav = () => {
           <img src={logo} alt={logo} />
 
           <span className="d-flex aic lang">
-            <FaGlobe /> NG
+            <FaGlobe /> {location || "..."}
           </span>
 
           {/* toggle */}
           <button
+            aria-label="dropdown toggle"
             className="d-flex aic toggle"
             onClick={({ currentTarget: c }) => {
               c.parentElement.parentElement.classList.toggle("fixed");
@@ -100,7 +132,16 @@ const Nav = () => {
                     {Object.keys(it)[0]} <FaAngleDown />
                     <ul>
                       {Object.values(it)[0].map((item, ind) => (
-                        <li key={ind}>
+                        <li
+                          key={ind}
+                          onClick={() => {
+                            let nav = document.querySelector("nav");
+                            nav.classList.remove("fixed");
+                            nav
+                              .querySelector("button.toggle")
+                              .classList.remove("open");
+                          }}
+                        >
                           <a href="#">{item}</a>
                         </li>
                       ))}
@@ -112,11 +153,12 @@ const Nav = () => {
 
             {/* lang */}
             <span className="d-flex aic lang">
-              <FaGlobe /> NG
+              <FaGlobe /> {location || ".."}
             </span>
 
             {/* search icon */}
             <button
+              aria-label="search toggle"
               className="searchicon d-flex aic jcc"
               onClick={({ currentTarget: c }) => {
                 let overlay = document.querySelector(".navoverlay");

@@ -30,19 +30,19 @@ const Footer = () => {
             <div className="followlinks">
               <h3>FOLLOW COMPANY</h3>
               <div>
-                <a href="#">
+                <a href="#" aria-label="facebook link">
                   <FaFacebook style={{ color: "#0e5998" }} />
                 </a>
-                <a href="#">
+                <a href="#" aria-label="twitter link">
                   <FaTwitter style={{ color: "#2ea8e0" }} />
                 </a>
-                <a href="#">
+                <a href="#" aria-label="instagram link">
                   <FaInstagram style={{ color: "#2ea8e0" }} />
                 </a>
-                <a href="#">
+                <a href="#" aria-label="linkedin link">
                   <FaLinkedin style={{ color: "#077bb8" }} />
                 </a>
-                <a href="#">
+                <a href="#" aria-label="youtube link">
                   <FaYoutube style={{ color: "#eb2227" }} />
                 </a>
               </div>
@@ -60,7 +60,7 @@ const Footer = () => {
       {/* two */}
       <footer className="two">
         <div className="inner d-flex aic">
-          <span>&copy; uTracker 2022</span>
+          <span>&copy; Voom 2022</span>
           <span>Terms of Use</span>
           <span>Security and Privacy</span>
         </div>

@@ -1,5 +1,18 @@
 $defaultWidth: 970px;
 // $navGray: #38475d;
 $navGray: #304a85;
+// $navGray: #6345b4;
 $orange: #ff6200;
+// $orange: #ed630b;
 $backgroundGray: #f1f1f1;
+
+@mixin hide {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+@mixin show {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
