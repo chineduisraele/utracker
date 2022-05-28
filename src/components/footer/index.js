@@ -78,7 +78,7 @@ const Footer2 = () => {
           <span>
             <FaLinkedin />
             <a
-              href="http://linkedin.com/in/chineduisraele"
+              href="https://www.linkedin.com/in/chineduisraele"
               target="_blank"
               rel="noopener noreferrer"
             >
