@@ -55,7 +55,7 @@ const Nav = () => {
           setLocation(result.country.iso_code);
           sessionStorage.setItem("loc", result.country.iso_code);
         })
-        .catch((error) => console.error(error.response));
+        .catch((err) => console.error(err.response));
     }
   }, []);
   return (
