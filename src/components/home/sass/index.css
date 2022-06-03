@@ -476,7 +476,6 @@ main section .customers > .cards div a svg {
 
 @media screen and (min-width: 769px) {
   main .track .imgcont {
-    background-image: url("../../../images/uthero.jpg");
     padding-top: 540px;
   }
 }

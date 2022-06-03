@@ -334,12 +334,9 @@ main {
             width: 38% !important;
             padding-top: 24% !important;
             background-color: $backgroundGray;
-            // box-shadow: 0 1px 8px -3px rgb(71, 19, 19);
           }
         }
         form {
-          // box-shadow: 0 1px 8px -3px gray;
-          // border: 1px solid $orange;
           input,
           select {
             background-color: $backgroundGray !important;
@@ -452,9 +449,7 @@ main {
 @media screen and (min-width: 769px) {
   main {
     .track {
-      //   heroimg
       .imgcont {
-        background-image: url("../../../images/uthero.jpg");
         padding-top: 540px;
       }
     }

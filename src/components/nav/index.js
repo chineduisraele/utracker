@@ -1,6 +1,4 @@
-import React from "react";
-import "./sass/index.css";
-import logo from "../../images/logo.png";
+import React, { useState, useEffect } from "react";
 import {
   FaAngleDown,
   FaSearch,
@@ -8,8 +6,8 @@ import {
   FaGlobe,
   FaTimes,
 } from "react-icons/fa";
-import { useState } from "react";
-import { useEffect } from "react";
+import "./sass/index.css";
+import logo from "../../images/logo.png";
 
 const navData = [
   {
@@ -37,10 +35,11 @@ const navData = [
 const Nav = () => {
   const [location, setLocation] = useState();
 
+  // fetch user location from local storage if already saved else query the GeoApify API
   useEffect(() => {
-    let loc = sessionStorage.getItem("loc");
-    if (loc) {
-      setLocation(loc);
+    let location = sessionStorage.getItem("location");
+    if (location) {
+      setLocation(location);
     } else {
       var requestOptions = {
         method: "GET",
@@ -53,18 +52,30 @@ const Nav = () => {
         .then((response) => response.json())
         .then((result) => {
           setLocation(result.country.iso_code);
-          sessionStorage.setItem("loc", result.country.iso_code);
+          sessionStorage.setItem("location", result.country.iso_code);
         })
         .catch((err) => console.error(err.response));
     }
   }, []);
+
+  const globe = (
+    <>
+      <span className="d-flex aic lang">
+        <FaGlobe /> {location || "..."}
+      </span>
+    </>
+  );
+
   return (
     <>
       {/* overlay for large screen dropdown */}
       <div
         className="navoverlay"
         onClick={({ currentTarget: c }) => {
+          // this is set to open within the nav element
           c.classList.remove("open");
+
+          // nav element
           c.nextElementSibling
             .querySelector("li.active")
             ?.classList.remove("active");
@@ -79,15 +90,15 @@ const Nav = () => {
         <div className="inner d-flex aic jcc">
           <img src={logo} alt={"logo"} />
 
-          <span className="d-flex aic lang">
-            <FaGlobe /> {location || "..."}
-          </span>
+          {/* globe */}
+          {globe}
 
           {/* toggle */}
           <button
             aria-label="dropdown toggle"
             className="d-flex aic toggle"
             onClick={({ currentTarget: c }) => {
+              // sets nav position to fixed
               c.parentElement.parentElement.classList.toggle("fixed");
               c.classList.toggle("open");
             }}
@@ -151,10 +162,8 @@ const Nav = () => {
               })}
             </ul>
 
-            {/* lang */}
-            <span className="d-flex aic lang">
-              <FaGlobe /> {location || ".."}
-            </span>
+            {/* globe */}
+            {globe}
 
             {/* search icon */}
             <button
@@ -163,6 +172,7 @@ const Nav = () => {
               onClick={({ currentTarget: c }) => {
                 let overlay = document.querySelector(".navoverlay");
                 c.classList.toggle("open");
+
                 // toggle overlay
                 c.classList.contains("open")
                   ? overlay.classList.add("open")

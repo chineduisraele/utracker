@@ -47,14 +47,7 @@ const Home = () => {
     <main>
       {/* tracker */}
       <article className="track">
-        <div className="imgcont">
-          {/* <picture>
-            <source media="(min-width:769px )" srcSet={uthero} />
-            <source media="(min-width:0px )" srcSet={uthero1} />
-            <img src={uthero} alt="heroimg" />
-          </picture> */}
-          {/* <img src={uthero} alt="heroimg" /> */}
-        </div>
+        <div className="imgcont"></div>
         {/* inner */}
         <div className="inner d-grid jcc">
           <h2>Where now meets next.</h2>
